@@ -1,15 +1,28 @@
 // акардеон
 const contents = document.querySelectorAll('.program-line__content');
-contents.forEach(elem => {
+const contentsDescr = document.querySelectorAll('.program-line__descr');
+
+
+contents.forEach((elem) => {
 const title = elem.querySelector('.program-line__title');
 const descr = elem.querySelector('.program-line__descr');
 
+descr.style.transition = 'all .3s'; // для плавности появления
+descr.style.overflow = 'hidden'; // для плавности появления
+
+
   title.addEventListener('click', ()=> {
-    if (!descr.classList.contains('active')){
-      descr.classList.toggle('active');
-    } else{
-      descr.classList.remove('active');
-    }
+    contentsDescr.forEach((tab) => {
+      
+      if(tab === descr){
+        tab.style.height = tab.scrollHeight + 'px'; // для плавности появления
+        // tab.classList.add('active'); // обычное появление
+      }else{
+        tab.style.height = 0; // для плавности появления
+        // tab.classList.remove('active'); // обычное появление
+      }
+    });
+    
 
   });
 
