@@ -28,6 +28,6 @@ const acardeon = () => {
     });
 
   });
-}
+};
 
 acardeon();
